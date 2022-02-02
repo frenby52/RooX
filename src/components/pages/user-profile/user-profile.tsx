@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from "react";
 import {useFormik} from 'formik';
-import FormInput from "../../form-input/form-input.jsx";
-import history from "../../../history.js";
-import {AppRoute} from "../../../const.js";
-import SortPanel from "../../sort-panel/sort-panel.jsx";
-import Loader from "../../loader/loader.jsx";
+import FormInput from "../../form-input/form-input";
+import history from "../../../history";
+import {AppRoute} from "../../../const";
+import SortPanel from "../../sort-panel/sort-panel";
+import Loader from "../../loader/loader";
 import style from './user-profile.module.scss';
 
 const FormInputs = [

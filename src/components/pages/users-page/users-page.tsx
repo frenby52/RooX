@@ -1,9 +1,9 @@
-import React from "react";
+import * as React from "react";
 import {connect} from "react-redux";
 import {isUsersLoaded} from "../../../reducer/users/selectors";
-import SortPanel from "../../sort-panel/sort-panel.jsx";
-import Loader from "../../loader/loader.jsx";
-import UserCard from "../../user-card/user-card.jsx";
+import SortPanel from "../../sort-panel/sort-panel";
+import Loader from "../../loader/loader";
+import UserCard from "../../user-card/user-card";
 import style from './users-page.module.scss';
 
 const UsersPage = (props) => {

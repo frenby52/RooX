@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import style from './sort-panel.module.scss';
 
 const SortPanel = (props) => {

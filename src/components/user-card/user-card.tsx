@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import React from "react";
-import {AppRoute} from "../../const.js";
+import * as React from "react";
+import {AppRoute} from "../../const";
 import style from './user-card.module.scss';
 
 const UserCard = (props) => {

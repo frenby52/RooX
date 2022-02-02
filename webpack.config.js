@@ -1,7 +1,7 @@
 const path = require(`path`);
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: `./src/index.tsx`,
   output: {
     filename: `bundle.js`,
     path: path.join(__dirname, `public`)
@@ -21,6 +21,10 @@ module.exports = {
         use: {
           loader: `babel-loader`,
         },
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        loader: `ts-loader`
       },
       {
         test: /\.(css|scss)$/,
@@ -43,6 +47,9 @@ module.exports = {
         ]
       }
     ],
+  },
+  resolve: {
+    extensions: [`.ts`, `.tsx`, `.js`, `json`]
   },
   devtool: `source-map`,
 };
