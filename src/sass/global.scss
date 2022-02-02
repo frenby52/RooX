@@ -1,0 +1,50 @@
+@use '../../node_modules/modern-normalize/modern-normalize.css';
+@charset "UTF-8";
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  outline: none; }
+
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  font-size: 12px;
+  line-height: 14px;
+  background-color: #F3F3F3;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+button {
+  color: #ffffff;
+  background-color: #4B51EF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    background-color: #AFAFAF;
+    cursor: default;
+  }
+}
+
+

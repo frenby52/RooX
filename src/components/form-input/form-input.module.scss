@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.label {
+  margin-bottom: 3px;
+  font-size: 8px;
+  line-height: 9px;
+}
+
+.input {
+  font-size: 10px;
+  line-height: 12px;
+  padding: 5px 10px;
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  &:read-only,
+  &::placeholder {
+    opacity: 0.3;
+  }
+
+  &--invalid {
+    border-color: #FF0000;
+  }
+}

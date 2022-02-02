@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  background: #BDBDBD;
+  box-sizing: border-box;
+  padding: 35px 20px 0 20px;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 5px 15px;
+  align-self: flex-start;
+}
