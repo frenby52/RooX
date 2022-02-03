@@ -11,10 +11,16 @@ import {getUserById} from "../../utils";
 import UserProfile from "../pages/user-profile/user-profile";
 import {ActionCreator} from "../../reducer/users/users";
 import '../../sass/global.scss';
+import {User} from "../../types";
 
 const UserProfileWrapped = withIsActive(UserProfile);
 
-const App = (props) => {
+type AppProps = {
+  users: User[];
+  onSortButtonClick: (sortType: string) => void;
+};
+
+const App: React.FunctionComponent<AppProps> = (props: AppProps) => {
   const {users, onSortButtonClick} = props;
 
   return (

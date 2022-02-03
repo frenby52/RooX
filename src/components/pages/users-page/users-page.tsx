@@ -5,8 +5,15 @@ import SortPanel from "../../sort-panel/sort-panel";
 import Loader from "../../loader/loader";
 import UserCard from "../../user-card/user-card";
 import style from './users-page.module.scss';
+import {User} from "../../../types";
 
-const UsersPage = (props) => {
+type UsersPageProps = {
+  users: User[];
+  onSortButtonClick: (sortType: string) => void;
+  isUsersLoaded: boolean;
+};
+
+const UsersPage: React.FunctionComponent<UsersPageProps> = (props: UsersPageProps) => {
   const {users, isUsersLoaded, onSortButtonClick} = props;
 
   return !isUsersLoaded ? <Loader /> : (

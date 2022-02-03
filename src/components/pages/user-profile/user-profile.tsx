@@ -6,8 +6,32 @@ import {AppRoute} from "../../../const";
 import SortPanel from "../../sort-panel/sort-panel";
 import Loader from "../../loader/loader";
 import style from './user-profile.module.scss';
+import {User} from "../../../types";
 
-const FormInputs = [
+type UserProfileProps = {
+  user: User;
+  isActive: boolean;
+  onSortButtonClick: (sortType: string) => void;
+  onIsActiveChange: (isActive: boolean) => void;
+};
+
+type Errors = {
+  [key:string]: string
+};
+
+type Values = {
+  name: string;
+  username: string;
+  email: string;
+  street: string;
+  city: string;
+  zipcode: string;
+  phone: string;
+  website: string;
+  comment?: string;
+}
+
+const FormInputs: Array<{[key:string]: string}> = [
   {value: `name`, label: `Name`, placeholder: `Иван Иванов`},
   {value: `username`, label: `User name`, placeholder: `Ivan`},
   {value: `email`, label: `E-mail`, placeholder: `example@mail.com`},
@@ -18,15 +42,15 @@ const FormInputs = [
   {value: `website`, label: `Website`, placeholder: `www.example.com`}
 ];
 
-const UserProfile = (props) => {
+const UserProfile: React.FunctionComponent<UserProfileProps> = (props: UserProfileProps) => {
   const {user, isActive, onIsActiveChange, onSortButtonClick} = props;
 
   if (!user) {
     return <Loader />;
   }
 
-  const validate = (values) => {
-    const errors = {};
+  const validate = (values: Values): Errors => {
+    const errors: Errors = {};
 
     if (!values.name) {
       errors.name = `Required`;
@@ -79,7 +103,7 @@ const UserProfile = (props) => {
     return errors;
   };
 
-  const formik = useFormik({
+  const formik = useFormik<Values>({
     initialValues: {
       name: user.name,
       username: user.username,
@@ -92,7 +116,7 @@ const UserProfile = (props) => {
       comment: ``,
     },
     validate,
-    onSubmit: (values) => {
+    onSubmit: (values: Values): void => {
       console.log(JSON.stringify(values, null, 2));
       onIsActiveChange(false);
       history.push(AppRoute.ROOT);

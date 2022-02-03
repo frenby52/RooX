@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import App from "./components/app/app";
-import {createStore, applyMiddleware, compose} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import {Provider} from "react-redux";
 import {createAPI} from "./api";
@@ -12,7 +12,7 @@ import {composeWithDevTools} from "redux-devtools-extension";
 const api = createAPI();
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api))));
 
-const init = () => {
+const init = (): void => {
   store.dispatch(Operation.getContacts());
 };
 
