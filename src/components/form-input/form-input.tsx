@@ -1,8 +1,17 @@
-import React from "react";
+import * as React from "react";
 import style from './form-input.module.scss';
 
-const FormInput = (props) => {
+type FormInputProps = {
+  value: string;
+  placeholder: string;
+  label: string;
+  isActive: boolean;
+  formik: any;
+};
+
+const FormInput: React.FunctionComponent<FormInputProps> = (props: FormInputProps) => {
   const {value, formik, isActive, placeholder, label} = props;
+
   return (
     <div className={style.wrapper}>
       <label className={style.label} htmlFor={value}>

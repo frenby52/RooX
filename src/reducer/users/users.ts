@@ -1,16 +1,23 @@
-import User from "../../models/user.js";
-import {AppRoute} from "../../const.js";
+import User from "../../models/user";
+import {AppRoute} from "../../const";
+import {User as UserType} from "../../types";
 
-const initialState = {
+type UsersState = {
+  users: UserType[];
+  isUsersLoaded: boolean;
+  sortType: string;
+};
+
+const initialState: UsersState = {
   users: [],
   isUsersLoaded: false,
   sortType: ``
 };
 
-const ActionType = {
-  GET_USERS: `GET_USERS`,
-  SET_USERS_LOADER_STATE: `SET_USERS_LOADER_STATE`,
-  CHANGE_SORT_TYPE: `CHANGE_SORT_TYPE`,
+const enum ActionType {
+  GET_USERS = `GET_USERS`,
+  SET_USERS_LOADER_STATE = `SET_USERS_LOADER_STATE`,
+  CHANGE_SORT_TYPE = `CHANGE_SORT_TYPE`,
 };
 
 const ActionCreator = {
@@ -19,7 +26,7 @@ const ActionCreator = {
   changeSortType: (sortType) => ({type: ActionType.CHANGE_SORT_TYPE, payload: sortType}),
 };
 
-const reducer = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action: any = {}) => {
   switch (action.type) {
     case ActionType.GET_USERS:
       return Object.assign({}, state, {users: action.payload});
